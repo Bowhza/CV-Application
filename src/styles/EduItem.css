@@ -1,0 +1,19 @@
+.EduItem {
+  display: flex;
+  border: 1px solid grey;
+  padding: 0.5em 1em;
+}
+
+.EduItem button {
+  height: 3em;
+}
+
+.edit {
+  flex-direction: column;
+}
+
+.closed {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

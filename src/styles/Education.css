@@ -1,0 +1,12 @@
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 2px solid grey;
+  padding: 1em;
+}
+
+.education div {
+  display: flex;
+  gap: 0.5em;
+}
