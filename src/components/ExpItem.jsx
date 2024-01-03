@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import "../styles/EduItem.css";
+import "../styles/ExpItem.css";
 
-export default function EduItem({ props, index, onUpdate, onDelete }) {
+export default function ExpItem({ props, index, onUpdate, onDelete }) {
   const [editState, setEditState] = useState(false);
   const [editedData, setEditedData] = useState({ ...props });
 
@@ -25,10 +25,10 @@ export default function EduItem({ props, index, onUpdate, onDelete }) {
   };
 
   return (
-    <div className={`EduItem ${editState ? "edit" : "closed"}`}>
+    <div className={`ExpItem ${editState ? "edit" : "closed"}`}>
       {editState ? (
         <>
-          <h3>Editing Info:</h3>
+          <h3>Editing Experience:</h3>
           {Object.entries(editedData).map(([key, value]) => (
             <Input
               key={key}
@@ -51,7 +51,7 @@ export default function EduItem({ props, index, onUpdate, onDelete }) {
           ))}
         </p>
       )}
-      <div className="edu-buttons">
+      <div className="exp-buttons">
         <button onClick={toggleState}>{editState ? "Save" : "Edit"}</button>
         <button onClick={handleDelete}>Delete</button>
       </div>

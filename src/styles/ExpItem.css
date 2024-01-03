@@ -1,15 +1,15 @@
-.EduItem {
+.ExpItem {
   display: flex;
   border: 1px solid grey;
   padding: 0.5em 1em;
   gap: 1em;
 }
 
-.EduItem button {
+.ExpItem button {
   height: 3em;
 }
 
-.edu-buttons {
+.exp-buttons {
   display: flex;
   gap: 1em;
 }

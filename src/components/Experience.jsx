@@ -1,40 +1,51 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import EduItem from "./EduItem";
-import "../styles/Education.css";
+import ExpItem from "./ExpItem";
+import "../styles/Experience.css";
 
 const items = {
-  school: {
-    name: "school",
-    label: "School Name",
+  company: {
+    id: "companyname",
+    name: "companyname",
+    label: "Company Name",
     type: "text",
   },
-  title: {
-    name: "title",
-    label: "Title of Study",
+  position: {
+    id: "positiontitle",
+    name: "positiontitle",
+    label: "Position Title",
+    type: "text",
+  },
+  responsibilities: {
+    id: "responsibilities",
+    name: "responsibilities",
+    label: "Main Responsibilities",
     type: "text",
   },
   start: {
-    name: "start",
+    id: "startdate",
+    name: "startdate",
     label: "Start Date",
     type: "date",
   },
   end: {
-    name: "end",
+    id: "enddate",
+    name: "enddate",
     label: "End Date",
     type: "date",
   },
 };
 
 const defaults = {
-  school: "",
-  title: "",
+  company: "",
+  position: "",
+  responsibilities: "",
   start: "",
   end: "",
 };
 
-export default function Education() {
-  const [eduItems, setEduItems] = useState([]);
+export default function Experience() {
+  const [expItems, setExpItems] = useState([]);
   const [currentInput, setCurrentInput] = useState(defaults);
 
   function handleInputChange(key, value) {
@@ -45,26 +56,26 @@ export default function Education() {
   }
 
   function addInfo() {
-    setEduItems([...eduItems, currentInput]);
+    setExpItems([...expItems, currentInput]);
     setCurrentInput(defaults);
   }
 
   function handleUpdate(index, updatedData) {
-    const updatedItems = [...eduItems];
+    const updatedItems = [...expItems];
     updatedItems[index] = updatedData;
-    setEduItems(updatedItems);
+    setExpItems(updatedItems);
   }
 
   function handleDelete(index) {
-    const updatedItems = [...eduItems];
+    const updatedItems = [...expItems];
     updatedItems.splice(index, 1);
-    setEduItems(updatedItems);
+    setExpItems(updatedItems);
   }
 
   return (
-    <div className="education">
-      <h2>Education Section</h2>
-      <div className="education-sec">
+    <div className="experience">
+      <h2>Practical Experience</h2>
+      <div className="experience-sec">
         {Object.values(items).map((item, index) => (
           <Input
             key={item.name}
@@ -76,8 +87,8 @@ export default function Education() {
       </div>
 
       <button onClick={addInfo}>Add Info</button>
-      {eduItems.map((item, index) => (
-        <EduItem
+      {expItems.map((item, index) => (
+        <ExpItem
           key={index}
           props={item}
           index={index}

@@ -1,4 +1,4 @@
-.education {
+.experience {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -6,15 +6,15 @@
   padding: 1em;
 }
 
-.education-sec {
+.experience-sec {
   display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
   align-self: flex-start;
   gap: 0.5em;
 }
 
-@media screen and (max-width: 450px) {
-  .education-sec {
+@media screen and (max-width: 600px) {
+  .experience-sec {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
