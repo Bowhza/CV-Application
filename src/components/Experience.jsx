@@ -5,14 +5,14 @@ import "../styles/Experience.css";
 
 const items = {
   company: {
-    id: "companyname",
-    name: "companyname",
+    id: "company",
+    name: "company",
     label: "Company Name",
     type: "text",
   },
   position: {
-    id: "positiontitle",
-    name: "positiontitle",
+    id: "position",
+    name: "position",
     label: "Position Title",
     type: "text",
   },
@@ -23,14 +23,14 @@ const items = {
     type: "text",
   },
   start: {
-    id: "startdate",
-    name: "startdate",
+    id: "start",
+    name: "start",
     label: "Start Date",
     type: "date",
   },
   end: {
-    id: "enddate",
-    name: "enddate",
+    id: "end",
+    name: "end",
     label: "End Date",
     type: "date",
   },
@@ -44,7 +44,7 @@ const defaults = {
   end: "",
 };
 
-export default function Experience() {
+export default function Experience({ onChange }) {
   const [expItems, setExpItems] = useState([]);
   const [currentInput, setCurrentInput] = useState(defaults);
 
@@ -53,6 +53,7 @@ export default function Experience() {
       ...prevInput,
       [key]: value,
     }));
+    onChange([...expItems, { ...currentInput, [key]: value }], "experience");
   }
 
   function addInfo() {
@@ -64,12 +65,14 @@ export default function Experience() {
     const updatedItems = [...expItems];
     updatedItems[index] = updatedData;
     setExpItems(updatedItems);
+    onChange(updatedItems, "experience");
   }
 
   function handleDelete(index) {
     const updatedItems = [...expItems];
     updatedItems.splice(index, 1);
     setExpItems(updatedItems);
+    onChange(updatedItems, "experience");
   }
 
   return (

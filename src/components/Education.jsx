@@ -33,7 +33,7 @@ const defaults = {
   end: "",
 };
 
-export default function Education() {
+export default function Education({ onChange }) {
   const [eduItems, setEduItems] = useState([]);
   const [currentInput, setCurrentInput] = useState(defaults);
 
@@ -42,6 +42,7 @@ export default function Education() {
       ...prevInput,
       [key]: value,
     }));
+    onChange([...eduItems, { ...currentInput, [key]: value }], "education");
   }
 
   function addInfo() {
@@ -53,12 +54,14 @@ export default function Education() {
     const updatedItems = [...eduItems];
     updatedItems[index] = updatedData;
     setEduItems(updatedItems);
+    onChange(updatedItems, "education");
   }
 
   function handleDelete(index) {
     const updatedItems = [...eduItems];
     updatedItems.splice(index, 1);
     setEduItems(updatedItems);
+    onChange(updatedItems, "education");
   }
 
   return (

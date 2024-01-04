@@ -3,12 +3,6 @@ import Education from "./Education";
 import Experience from "./Experience";
 import "../styles/CVForm.css";
 
-export default function CVForm() {
-  return (
-    <aside className="CVForm">
-      <General />
-      <Education />
-      <Experience />
-    </aside>
-  );
+export default function CVForm({ onChange }) {
+  return <aside className="CVForm"></aside>;
 }
