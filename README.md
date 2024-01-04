@@ -1,4 +1,3 @@
-# CV Application
+# CV-Application
 
-Created using Vite + React.
-This Readme will be updated in the future.
+This is an application build with Vite + React. It allows the user to create a simple looking CV and download it as PDF.
